@@ -14,6 +14,7 @@
 		Email: <p><input type = "email" name= "eMail"></p><br>
 		Phone Number: <p><input type = "tel" name= "phoneNumber"></p><br>
 		Password: <p><input type = "password" name= "password"></p><br>
+		Confirm Password: <p><input type = "password" name= "confirm_password"></p><br>
 		
 		<input type = "submit" value = "Submit">
 		

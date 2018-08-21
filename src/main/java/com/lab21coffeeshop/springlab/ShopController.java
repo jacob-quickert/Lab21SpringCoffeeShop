@@ -17,7 +17,7 @@ public class ShopController {
 	}
 	
 	@RequestMapping("username")
-	public ModelAndView formData(@RequestParam("firstName") String fName,@RequestParam("lastName") String lName,@RequestParam("eMail") String eM,@RequestParam("phoneNumber") String pNum,@RequestParam("password") String pWord) {
+	public ModelAndView formData(@RequestParam("firstName") String fName,@RequestParam("lastName") String lName,@RequestParam("eMail") String eM,@RequestParam("phoneNumber") String pNum,@RequestParam("password") String pWord, @RequestParam("confirm_password") String cPWord) {
 		return new ModelAndView("greetuser", "personName", fName);
 	}
 }
