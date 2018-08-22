@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="u" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +9,36 @@
 </head>
 <body>
 	<h1>Please fill the form to register!</h1>
-	<form name = 'regForm' action='username' onsubmit = "return validateForm()" method = "post">
-		First Name: <p><input type = "text" name= "firstName"></p><br>
-		Last Name: <p><input type = "text" name= "lastName"></p><br>
-		Email: <p><input type = "email" name= "eMail"></p><br>
-		Phone Number: <p><input type = "tel" name= "phoneNumber"></p><br>
-		Password: <p><input type = "password" name= "password"></p><br>
-		Confirm Password: <p><input type = "password" name= "confirm_password"></p><br>
-		
-		<input type = "submit" value = "Submit">
-		
-	</form><br>
-	<script src="js/script.js"></script>
+	<form action="addnewuser">
+		User ID: <br><input type="text" name="id"><br> 
+		First Name:<br><input type="text" name="fName"><br> 
+		Last Name: <br><input type="text" name="lName"><br> 
+		Your Email: <br><input type="text" name="email"><br> 
+		Your Phone: <br><input type="text" name="phone"><br> 
+		<input type="submit" value="Add"><br>
+
+	</form>
+	<table border="1">
+		<u:forEach var="user" items="${users}">
+			<tr>
+				<!-- left out title on purpose -->
+				<td>${user.userID }</td>
+				<td>${user.firstName}</td>
+				<td>${user.lastName}</td>
+				<td>${user.phone}</td>
+				<td>${user.email}</td>
+				<!-- this is url encoding and allows us to pass some 
+				data into the link for our controller method -->
+				<td><a href="update?id=${user.userID }">Update</a></td>
+				<td><a href="delete?id=${user.userID }">Delete</a></td>
+			
+			
+			</tr>
+	
+		</u:forEach>
+
+	</table>
+	<br>
+	
 </body>
 </html>
