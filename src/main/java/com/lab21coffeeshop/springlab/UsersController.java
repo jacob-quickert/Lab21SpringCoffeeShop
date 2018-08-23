@@ -14,28 +14,31 @@ public class UsersController {
 	@Autowired
 	UsersJdbcDao dao;
 	
-	@RequestMapping("/")
-	public ModelAndView registration() {
-		return new ModelAndView("registration","users",dao.findAll());
-	}
 	
+	
+	@RequestMapping("/registration")
+	public ModelAndView registration() {
+		
+		return new ModelAndView("registration", "users", dao.findAll()); // string methods in the controller class return the view
+	}
+//	@RequestParam ("id")int id,
 	@RequestMapping("/addnewuser")
-	public ModelAndView addNew(@RequestParam ("id")String id,
+	public ModelAndView addNew(
 								@RequestParam("fName") String fName, 
 								@RequestParam("lName") String lName,
 								@RequestParam("email") String email,
 								@RequestParam("phone") String phone) {
 		
-		dao.insertUser(id, fName, lName, email, phone);
+		dao.insertUser( fName, lName, email, phone);
 		
 		return new ModelAndView("registration", "users", dao.findAll());
 	}
 	
 	@RequestMapping("/delete")
-	public ModelAndView deleteUser(@RequestParam("id")String id) {
+	public ModelAndView deleteUser(@RequestParam("id")int id) {
 		dao.deleteUser(id);
 		
-		return new ModelAndView("registration", "customers", dao.findAll());
+		return new ModelAndView("registration", "users", dao.findAll());
 	}
 
 }

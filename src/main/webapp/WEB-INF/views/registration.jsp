@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="u" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <body>
 	<h1>Please fill the form to register!</h1>
 	<form action="addnewuser">
-		User ID: <br><input type="text" name="id"><br> 
+		<!-- User ID: <br><input type="text" name="id"><br> --> 
 		First Name:<br><input type="text" name="fName"><br> 
 		Last Name: <br><input type="text" name="lName"><br> 
 		Your Email: <br><input type="text" name="email"><br> 
@@ -19,10 +19,10 @@
 
 	</form>
 	<table border="1">
-		<u:forEach var="user" items="${users}">
+		<c:forEach var="user" items="${users}">
 			<tr>
 				<!-- left out title on purpose -->
-				<td>${user.userID }</td>
+				
 				<td>${user.firstName}</td>
 				<td>${user.lastName}</td>
 				<td>${user.phone}</td>
@@ -35,7 +35,7 @@
 			
 			</tr>
 	
-		</u:forEach>
+		</c:forEach>
 
 	</table>
 	<br>

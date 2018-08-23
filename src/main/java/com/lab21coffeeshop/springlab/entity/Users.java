@@ -1,21 +1,21 @@
 package com.lab21coffeeshop.springlab.entity;
 
 public class Users {
-	private String userID;
+	private int userID;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String phone;
 	
 	public Users() {
-		userID = "";
+		userID = 0;
 		firstName = "";
 		lastName = "";
 		email = "";
 		phone = "";
 	}
 	
-	public Users(String userID, String firstName, String lastName, String email, String phone) {
+	public Users(int userID, String firstName, String lastName, String email, String phone) {
 		super();
 		this.userID = userID;
 		this.firstName = firstName;		
@@ -26,11 +26,11 @@ public class Users {
 
 	
 
-	public String getUserID() {
+	public int getUserID() {
 		return userID;
 	}
 
-	public void setUserID(String userID) {
+	public void setUserID(int userID) {
 		this.userID = userID;
 	}
 

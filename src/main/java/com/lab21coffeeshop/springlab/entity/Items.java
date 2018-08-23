@@ -1,7 +1,7 @@
 package com.lab21coffeeshop.springlab.entity;
 
 public class Items {
-	private int itemID;
+	private int idItems;
 	private String itemName;
 	private String description;
 	private String quantity;
@@ -9,16 +9,16 @@ public class Items {
 	
 	public Items() {
 		super();
-		itemID = 0;
+		idItems = 0;
 		itemName = "";
 		description = "";
 		quantity = "";
 		price = 0;
 	}
 	
-	public Items(int itemID, String itemName, String description, String quantity, float price) {
+	public Items(int idItems, String itemName, String description, String quantity, float price) {
 		super();
-		this.itemID = itemID;
+		this.idItems = idItems;
 		this.itemName = itemName;
 		this.description = description;
 		this.quantity = quantity;
@@ -26,11 +26,11 @@ public class Items {
 	}
 
 	public int getItemID() {
-		return itemID;
+		return idItems;
 	}
 
-	public void setItemID(int itemID) {
-		this.itemID = itemID;
+	public void setItemID(int idItems) {
+		this.idItems = idItems;
 	}
 
 	public String getItemName() {
@@ -67,7 +67,7 @@ public class Items {
 
 	@Override
 	public String toString() {
-		return "itemID=" + itemID + ", itemName=" + itemName + ", description=" + description + ", quantity="
+		return "itemID=" + idItems + ", itemName=" + itemName + ", description=" + description + ", quantity="
 				+ quantity + ", price=" + price;
 	}
 	

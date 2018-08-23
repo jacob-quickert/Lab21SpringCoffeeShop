@@ -21,15 +21,15 @@ public class UsersJdbcDao {
 			return jdbcTemplate.query("select * from users", new BeanPropertyRowMapper<Users>(Users.class));
 		}
 		
-		public int insertUser( String id, String fName, String lName, String email, String phone) {
-			String insertQuery = "INSERT INTO users(id, firstName, lastName, email, phone)"
-					+ " values(?,?,?,?,?)";
+		public int insertUser( String fName, String lName, String email, String phone) {
+			String insertQuery = "INSERT INTO users(firstName, lastName, email, phone)"
+					+ " values(?,?,?,?)";
 			
 			return jdbcTemplate.update(insertQuery, fName, lName, email, phone);
 		}
 		
-		public int deleteUser(String id) {
-			String deleteQuery = "DELETE FROM users WHERE idUsers = ?";
+		public int deleteUser(int id) {
+			String deleteQuery = "DELETE FROM users WHERE userID = ?";
 			return jdbcTemplate.update(deleteQuery, id);
 		}
 }
